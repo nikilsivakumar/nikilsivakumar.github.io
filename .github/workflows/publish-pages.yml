@@ -1,0 +1,21 @@
+name: Publish GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up pages
+        run: |
+          gh pages setup --branch main
+
+      - name: Build and deploy pages
+        run: |
+          gh pages deploy
